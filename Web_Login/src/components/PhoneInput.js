@@ -17,23 +17,18 @@ class PhoneInput extends Component {
     }
 
     render(){
-        return (
-            
-            <CardActions>
-                <TextField
-                    id="outlined-name"
-                    label="Phone"
-                    onChange={this.handleInput.bind(this)}
-                    // onChange={e => this.setState({ name: e.target.value })}
-                    margin="normal"
-                    variant="outlined"
-                />
-                {/* <input type= "text" onChange={this.handleInput.bind(this)}></input> */}
-                <IconButton aria-label="Delete" onClick={this.handleRemove.bind(this)}>
+        if(this.props.phone.length > 1){
+            return (
+                <IconButton aria-label="Delete" onClick={this.props.removePhone}>
                     <DeleteIcon />
                 </IconButton>
-            </CardActions>
-        );
+                
+            );        
+        }
+        else{
+            return <div></div>;
+        }
+        
     }
 }
   
